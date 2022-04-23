@@ -1,0 +1,9 @@
+tag @s add home_player
+summon minecraft:armor_stand ~ ~ ~ {Tags:["home_pos"],Invisible:1b,Marker:1b}
+execute as @e[tag=home_pos,limit=1] run function copy_coordinates
+execute at @s if score @s home_d matches 0 in minecraft:overworld run tp @s ~0.5 ~ ~0.5
+execute at @s if score @s home_d matches 1 in minecraft:the_end run tp @s ~0.5 ~ ~0.5
+execute at @s if score @s home_d matches -1 in minecraft:the_netherrun tp @s ~0.5 ~ ~0.5
+tellraw @s blah
+scoreboard players reset @s go_home
+tag @s remove home_player

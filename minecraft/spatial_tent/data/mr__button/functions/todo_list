@@ -1,0 +1,2 @@
+Use facing entity to teleport player only when looking at armor stand AND above structure block
+see if a scoreboard objective exists for teleporting or if the trigger command works like that. 

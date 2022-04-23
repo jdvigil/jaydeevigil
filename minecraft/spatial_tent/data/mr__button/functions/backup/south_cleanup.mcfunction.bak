@@ -1,0 +1,5 @@
+execute if entity @e[name=tp_armorstand_1] positioned ~ ~ ~6 at @e[name="Ender Pearl"] if block ~ ~ ~ minecraft:campfire facing entity @p eyes at @e[name="Ender Pearl"] run execute as @a at @e[name="Ender Pearl"] run particle minecraft:squid_ink ~ ~1 ~9 7 7 7 .1 9000
+
+execute as @a at @e[name='Ender Pearl'] if block ~ ~ ~ minecraft:campfire if entity @s[y_rotation=-45..45] run clone 0 249 0 4 254 6 ~-2 ~-2 ~2
+
+kill @e[name=tp_armorstand_1]

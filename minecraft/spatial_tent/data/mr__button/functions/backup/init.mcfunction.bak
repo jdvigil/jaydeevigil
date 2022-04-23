@@ -1,0 +1,84 @@
+scoreboard objectives add st_X dummy "X"
+scoreboard objectives add st_Y dummy "Y"
+scoreboard objectives add st_Z dummy "Z"
+scoreboard objectives add st_dim dummy "Dimension"
+
+setworldspawn 0 70 0 
+
+fill 0 248 0 4 248 6 bedrock
+
+fill 0 0 0 32 22 32 bedrock
+fill 1 1 1 29 19 29 red_wool
+fill 2 2 2 28 18 28 air
+
+fill 28 4 2 2 18 28 red_wool
+fill 28 4 3 2 4 27 air
+fill 28 5 4 2 5 26 air
+fill 28 6 5 2 6 25 air
+fill 28 7 6 2 7 24 air
+fill 28 8 7 2 8 23 air
+fill 28 9 8 2 9 22 air
+fill 28 10 9 2 10 21 air
+fill 28 11 10 2 11 20 air
+fill 28 12 11 2 12 19 air
+fill 28 13 12 2 13 18 air
+fill 28 14 13 2 14 17 air
+fill 28 15 14 2 15 16 air
+fill 28 16 15 2 16 15 air
+
+fill 15 12 15 15 16 15 iron_bars
+setblock 15 11 15 lantern
+setblock 27 15 15 lantern
+setblock 3 15 15 lantern
+
+fill 28 1 2 2 1 28 glowstone
+fill 28 2 2 2 2 28 brown_carpet
+
+setblock 28 2 15 air
+setblock 28 1 15 brown_wool
+setblock 29 1 15 brown_wool
+setblock 28 2 15 minecraft:spruce_trapdoor[facing=west, half=top, open=true]
+
+fill 31 1 14 30 3 16 black_concrete
+fill 32 1 14 32 3 16 red_wool
+fill 31 2 15 29 2 15 air
+setblock 32 1 15 brown_wool
+
+setblock 32 2 15 minecraft:spruce_trapdoor[facing=west, half=top, open=true]
+
+setblock 33 2 15 campfire
+
+setblock 31 0 15 jigsaw
+
+setblock 0 1 0 air
+
+summon falling_block 0 1 0 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @e[name='Ender Pearl'] if block ~ ~ ~ minecraft:campfire run function spatial_tent:south_cleanup",auto:1}}
+
+setblock 0 1 2 air
+
+summon falling_block 0 1 2 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute unless entity @e[name=tp_armorstand_1] positioned ~ ~ ~6 as @a at @e[name=Compass] if entity @s[y_rotation=-45..45] if block ~ ~ ~ minecraft:campfire run function spatial_tent:spatial_tent_south",auto:1}}
+
+setblock 0 1 4 air
+
+summon falling_block 0 1 4 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @s if block ~ ~-2 ~ minecraft:jigsaw if entity @s[y_rotation=-135..-46] run execute at @e[name=tp_armorstand_1] run tp @s ~ ~ ~-1.5 180 0",auto:1}}
+
+setblock 0 1 6 air
+
+summon falling_block 0 1 6 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @s if entity @s[y_rotation=-45..45] if block ~ ~-2 ~ minecraft:structure_block run tp @s 30 2 15 facing ~-600 ~ ~",auto:1}}
+
+setblock 0 1 8 air
+
+summon falling_block 0 1 8 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @s if entity @s[y_rotation=-135..-46] if block ~ ~-2 ~ minecraft:structure_void run tp @s 30 2 15 facing ~-600 ~ ~",auto:1}}
+
+setblock 0 1 10 air
+
+summon falling_block 0 1 10 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @s if entity @s[y_rotation=135..-135] if block ~ ~-2 ~ minecraft:command_block run tp @s 30 2 15 facing ~-600 ~ ~",auto:1}}
+
+setblock 0 1 10 air
+
+summon falling_block 0 1 10 {Time:1,DropItem:0b,BlockState:{Name:"minecraft:repeating_command_block"},TileEntityData:{Command:"execute as @a at @s if entity @s[y_rotation=45..135] if block ~ ~-2 ~ minecraft:spawner run tp @s 30 2 15 facing ~-600 ~ ~",auto:1}}
+
+fill 0 1 10 0 3 12 air
+setblock 0 1 10 iron_block
+setblock 0 1 12 redstone_block
+setblock 0 2 12 activator_rail
