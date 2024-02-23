@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+fizzbuzz = {"Fizz": 3, "Buzz": 5, "Whiz": 7, "Bang": 11}
 
-fizzbuzz = {'fizz':3,'buzz':5}
-
-print(fizzbuzz['fizz'])
-
-for k, v in fizzbuzz.items():
+for i in range(1, 101):
+  output = ""
+  for key, value in fizzbuzz.items():
+    if i % value == 0:
+      output += key
+  print(output or i)
