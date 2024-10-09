@@ -94,6 +94,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # VirtualBox Guest Additions
+  virtualisation.virtualbox.guest.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -101,6 +104,9 @@
   	wget
 	neovim
 	kitty
+	tmux
+	zsh
+	git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
